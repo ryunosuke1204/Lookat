@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(version: 2022_06_09_010553) do
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "content"
+    t.text "content", null: false
     t.string "headwear"
-    t.string "tops"
+    t.string "tops", null: false
     t.string "outer"
-    t.string "bottoms"
+    t.string "bottoms", null: false
     t.string "shoes"
     t.string "accessories"
     t.bigint "user_id", null: false
