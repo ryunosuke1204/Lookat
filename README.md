@@ -27,8 +27,7 @@ has_many :relationship
 ## posts　テーブル
 | Column             | Type      |Options                     |
 | ----------         | ----------| ---------------------------|
-| title              | string    | null: false                |
-| concept            | text      | null: false                |
+| content            | text      | null: false                |
 | headwear           | string    |                            |
 | tops               | string    | null: false                |
 | outer              | string    |                            |
