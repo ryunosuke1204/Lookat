@@ -4,7 +4,7 @@
       <p class="post__hedding">
         <%= "プロトタイプのタイトル"%>
       </p>
-      <%= link_to "by プロトタイプの投稿者", root_path, class: :post__user %>
+      <%= link_to @post.user.nickname, user_path(@post.id), class: :prototype__user %>
       <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
         <div class="post__manage">
           <%= link_to "編集する",  edit_post_path(@post), class: :post__btn %>
@@ -29,24 +29,25 @@
         </div>
       </div>
       <div class="post__comments">
-        <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
-          <%= form_with model: @post,local: true do |f|%>
+ <% if user_signed_in? && current_user.id == @post.user_id %>
+          <%= form_with model: [@post,@comment],local: true do |f|%>
             <div class="field">
-               <%= f.label :hoge, "コメント" %><br />
-               <%= f.text_field :hoge, id:"comment_content" %>
+               <%= f.label :text, "コメント" %><br />
+               <%= f.text_field :content, id:"comment_content" %>
             </div>
             <div class="actions">
              <%= f.submit "送信する", class: :form__btn  %>
             </div>
          <% end %>
+    <% end %>
         <%# // ログインしているユーザーには上記を表示する %>
         <ul class="comments_lists">
-          <%# 投稿に紐づくコメントを一覧する処理を記述する %>
+           <% @comments.each do |comment| %>
             <li class="comments_list">
-              <%# <%= " コメントのテキスト "%>
-              <%# <%= link_to "（ ユーザー名 ）", root_path, class: :comment_user %>
+            <%= comment.content %>
+            <%= link_to comment.user.nickname, user_path(@post.id), class: :comment_user %>
             </li>
-          <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
+          <% end %>
         </ul>
       </div>
     </div>

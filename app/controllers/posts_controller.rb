@@ -10,7 +10,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    
+    @comment = Comment.new
+    @comments = @post.comments.includes(:user)
   end
 
   def update
@@ -23,7 +24,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    binding.pry
     if @post.save
       redirect_to action: :index
     else
