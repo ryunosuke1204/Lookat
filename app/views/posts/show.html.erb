@@ -1,10 +1,11 @@
 <div class="contents row">
-  <div class="content_post" style="background-image">
+  <div class="content_post_show">
   <%= link_to image_tag(@post.image,size: '500x500'), post_path(@post.id), method: :get %>
     <% if user_signed_in? && current_user.id == @post.user_id %>
-      <div class="more">
-        <span><%= "●"%></span>
-        <ul class="more_list">
+      <div class="more_show">
+        <label for="menu"></label>
+        <input type="checkbox" id="menu">
+        <ul class="dropdown">
           <li>
             <%= link_to '編集', edit_post_path(@post.id), method: :get %>
           </li>
@@ -14,13 +15,45 @@
         </ul>
       </div>
     <% end %>
-    <span class="name">
+    <span class="name_show">
       <a href="/users/<%= @post.user.id %>">
         <%= @post.user.name %>
       </a>
     </span>
-      <div class = "coordinate-item">
   </div>
+   <table class="coordinate-item">
+      <tbody>
+        <tr>
+          <th class="detail-item">Headwear</th>
+          <td class="detail-value"><%= @post.headwear %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">Tops</th>
+          <td class="detail-value"><%= @post.tops %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">Outer</th>
+          <td class="detail-value"><%= @post.outer %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">Bottoms</th>
+          <td class="detail-value"> <%= @post.bottoms %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">Shoes</th>
+          <td class="detail-value"><%= @post.shoes %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">Accessories</th>
+          <td class="detail-value"><%= @post.accessories %></td>
+        </tr>
+      </tbody>
+    </table>
+        <div class="option">
+      <div class="favorite-btn">
+        <%#= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <span>お気に入り 0</span>
+      </div>
   </div>
   <div class="container">
     <% if user_signed_in? %>
