@@ -25,7 +25,7 @@
         </tbody>
       </table>
       <h2 class="page-heading">
-        <%= "#{@user.nickname}さんのプロトタイプ"%>
+        <%= "#{@user.name}さんのプロトタイプ"%>
       </h2>
       <% if @favorites.present? %>
     <ul class="relative-post-lists">
@@ -59,7 +59,7 @@
           </div>
           <div class='user-img-content'>
             <%= image_tag favorite.user.image ,class:"mini-img" if favorite.user.image.attached? %>
-            <%= link_to favorite.user.nickname, user_path(favorite.user.id) %>
+            <%= link_to favorite.user.name, user_path(favorite.user.id) %>
           </div>
           <div class="relative-post-date">
             更新日時：<%= favorite.created_at.strftime("%Y.%m.%d") %>
@@ -70,7 +70,7 @@
     </ul>
   <% end %>
       <div class="user__card">
-        <%= render partial: 'prototypes/prototype', collection: @prototypes %>
+        <%= render partial: 'posts/post', collection: @posts %>
       </div>
     </div>
   </div>

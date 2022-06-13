@@ -42,7 +42,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:headwear,:tops,:shoes,:accessories,:bottoms,:outer,:image).merge(user_id: current_user.id)
+    params.require(:post).permit(:headwear,:tops,:shoes,:accessories,:bottoms,:outer,:image,:name).merge(user_id: current_user.id)
   end
 
   def move_to_index
