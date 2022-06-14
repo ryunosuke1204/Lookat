@@ -1150,6 +1150,7 @@ label[for="menu"]::before {
   display: flex;
   justify-content: space-between;
   position: relative;
+  margin-bottom: 30px;
 }
 
 .favorite-btn {
