@@ -15,10 +15,10 @@
           <% end %>
         </ul>
       </div>
-      <p><%= post.text %></p>
+      <p><%= "post.text" %></p>
       <span class="name">
         <a href="/users/<%= post.user.id %>">
-          <span>投稿者</span><%= post.user.nickname %>
+          <span>投稿者</span><%= post.user.name %>
         </a>
       </span>
     </div>

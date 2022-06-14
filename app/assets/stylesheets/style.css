@@ -971,7 +971,7 @@ div.contents.row .success h3 {
 form input,
 form textarea {
   width: 100%;
-  margin: 5px 0 15px;
+  margin: 0 0 15px;
   padding: 10px;
   border: 1px solid #D8D8D8;
   border-radius: 5px;
@@ -996,6 +996,7 @@ form input[type="submit"]:hover {
   background-color: white;
   box-sizing: border-box;
   outline: solid #000;
+  margin-top: 30px;
 }
 
 .container h3 {
@@ -1088,7 +1089,7 @@ div.content_post_show span.name_show {
 label,
 li {
   display: block;
-  padding: 2em;
+  padding: 1em;
   background: #fff;
   border-bottom: #fff 1px solid;
   font-family: sans-serif;
@@ -1167,4 +1168,52 @@ label[for="menu"]::before {
 
 .favorite-star-icon {
   margin-right: 5px;
+}
+
+.form__wrapper_new {
+  display: flex;
+  justify-content: left;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
+  background-color: white;
+  box-sizing: border-box;
+  outline: solid #000;
+  margin: 30px;
+  width: 1000px;
+}
+
+.field_user_new {
+  width: 500px;
+}
+
+.main_new {
+  padding: 0 200px;
+}
+
+.page-heading_new {
+  padding: 0 150px 30px 0;
+}
+
+.form__wrapper_login {
+  display: flex;
+  justify-content: left;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(41, 41, 41, 0.2);
+  background-color: white;
+  box-sizing: border-box;
+  outline: solid #000;
+  margin: 30px;
+  width: 700px;
+}
+
+.field_user_login {
+  width: 500px;
+}
+
+.main_login {
+  padding: 0 330px;
+}
+
+.page-heading {
+  padding: 0 150px 0 0;
 }
