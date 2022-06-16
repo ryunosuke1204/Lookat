@@ -50,8 +50,15 @@
     </table>
         <div class="option">
       <div class="favorite-btn">
-        <span>お気に入り 0</span>
-      </div>
+      <% if user_signed_in? && current_user != @post.user %>
+    <% if current_user.favorite_find(@post.id) %>
+      <%= link_to 'お気に入りからはずす', post_destroy_favorite_path(@post.id), method: :delete %>
+    <% else %>
+      <%= link_to 'お気に入り登録する', post_create_favorite_path(@post.id), method: :post %>
+    <% end %>
+  <% end %>
+  </div>
+
   </div>
   <div class="container">
     <% if user_signed_in? %>

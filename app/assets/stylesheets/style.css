@@ -1230,10 +1230,21 @@ div.content_post_show span.name_show {
 .user__card_user_show {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .content_post_user_show {
   margin: 50px 50px;
+}
+
+.user__card_favorite {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.user__post_favorite {
+  margin: 50px;
 }

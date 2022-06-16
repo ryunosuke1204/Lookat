@@ -24,6 +24,18 @@
      <%= link_to image_tag(post.image, size: '400x400'), post_path(post.id), method: :get %>
     </div>
   <% end %>
+  </div>
+<% if @favorite_list.present? %>
+ <h2 class="page-heading">
+ <%= "お気に入りの投稿"%>
+</h2>
+<div class="user__card_favorite">
+  <% @favorite_list.each do |post| %>
+  <div class="user__post_favorite">
+    <%= link_to image_tag(post.image, size: '300x300'), post_path(post.id), method: :get %>
+ </div>
+<% end %>
+<% end %>
       </div>
     </div>
   </div>

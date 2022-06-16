@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   root to: 'posts#index'
   resources :posts do
     resources :comments, only: :create
-    resource :favorites, only: [:create, :destroy]
+    post 'favorite/:id' => 'favorites#create', as: 'create_favorite'
+    delete 'favorite/:id' => 'favorites#destroy', as: 'destroy_favorite'
   end
-  resources :users, only: :show do
+  resources :users, only: [:show,:edit,:update ]do
     get :favorites, on: :collection
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'

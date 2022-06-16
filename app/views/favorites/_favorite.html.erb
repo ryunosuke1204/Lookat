@@ -7,5 +7,5 @@
   <%= link_to post_favorites_path(post_id: post.id, id: post.favorites[0].id), method: :delete, remote: true, class:"favorite-btn" do %>
     <i class="fas fa-star star-icon2"></i>
   <% end %>
-  <span class="star-count2"><%= post.favorite.count %></span>
+  <span class="star-count2"><%= post.favorites.count %></span>
 <% end %>

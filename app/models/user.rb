@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
 has_many :posts
 has_many :comments
-has_many :favorites, dependent: :destroy
+has_many :favorites
 
 has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
 has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
@@ -25,4 +25,9 @@ end
 def following?(user)
   followings.include?(user)
 end
+
+def favorite_find(post_id)
+  favorites.where(post_id: post_id).exists?
+end
+
 end
