@@ -1082,49 +1082,6 @@ div.content_post_show span.name_show {
   background-color: #fff
 }
 
-.dropdown {
-  display: none;
-}
-
-label,
-li {
-  display: block;
-  padding: 1em;
-  background: #fff;
-  border-bottom: #fff 1px solid;
-  font-family: sans-serif;
-  letter-spacing: .05em;
-}
-
-li::before,
-label::before {
-  content: "";
-  display: block;
-  position: absolute;
-  right: 5%;
-  width: .5em;
-  height: .5em;
-  border-top: #000 1px solid;
-  border-left: #000 1px solid;
-  transform: rotate(135deg);
-}
-
-input[type="checkbox"] {
-  display: none;
-}
-
-label[for="menu"] {
-  display: block;
-}
-
-label[for="menu"]::before {
-  transform: rotate(225deg);
-}
-
-#menu:checked+.dropdown {
-  display: block;
-}
-
 .coordinate-item {
   margin-bottom: 30px;
   width: 100%;
@@ -1216,4 +1173,67 @@ label[for="menu"]::before {
 
 .page-heading {
   padding: 0 150px 0 0;
+  margin-top: 100px;
+}
+
+.inner {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+.user__wrapper {
+  min-height: calc(100vh - 161px);
+}
+
+.table {
+  margin-top: 70px;
+  border-collapse: collapse;
+  margin-bottom: 32px;
+  width: 50%;
+}
+
+.table__col1 {
+  text-align: left;
+  font-weight: bold;
+  background: #fafafa;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  border: solid 3px #000000;
+  width: 30%;
+  padding: 8px;
+}
+
+.table__col2 {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  border: solid 3px #000000;
+  text-align: left;
+  width: 70%;
+  padding: 16px 8px;
+  background-color: #fafafa;
+}
+
+.table__col2_profile {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  border: solid 3px #000000;
+  text-align: left;
+  width: 70%;
+  height: 100px;
+  padding: 16px 8px;
+  background-color: #fafafa;
+}
+
+.user__card_user_show {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content_post_user_show {
+  margin: 50px 50px;
 }

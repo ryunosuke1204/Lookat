@@ -6,58 +6,24 @@
       <table class="table">
         <tbody>
           <tr>
-            <th class="table__col1"><%= @user.name %></th>
-            <td class="table__col2"></td>
+            <th class="table__col1">ニックネーム</th>
+            <td class="table__col2"><%= @user.name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">プロフィール</th>
+            <td class="table__col2_profile"><%= @user.content %></td>
           </tr>
         </tbody>
       </table>
       <h2 class="page-heading">
-        <%= "#{@user.name}さんのプロトタイプ"%>
+        <%= "POST"%>
       </h2>
-      <% if @favorites.present? %>
-    <ul class="relative-post-lists">
-    <% @favorites.each do |favorite| %>
-      <li class='post-list'>
-        <%= link_to post_path(favorite.id) do %>
-        <div class='post-img-content'>
-          <%= image_tag favorite.image, class: "post-img" %>
-        </div>
-          <div class='relative-post-name'>
-            商品名：<%= favorite.name %>
-          </div>
-          <div class='relative-item-price'>
-            <span><%= favorite.price %>円(税込み)</span>
-          </div>
-          <div class="relative-post-evaluation">
-            <span>評価：</span>
-              <span id="star-rate-<%= favorite.id %>"></span>
-              <script>
-                $('#star-rate-<%= favorite.id %>').raty({
-                  size: 36,
-                  starOff: "<%= asset_path('star-off.png') %>",
-                  starOn: "<%= asset_path('star-on.png') %>",
-                  starHalf: "<%= asset_path('star-half.png') %>",
-                  half: true,
-                  readOnly: true,
-                  score: <%= favorite.evaluation %>,
-                });
-              </script>
-              <%= favorite.evaluation %>
-          </div>
-          <div class='user-img-content'>
-            <%= image_tag favorite.user.image ,class:"mini-img" if favorite.user.image.attached? %>
-            <%= link_to favorite.user.name, user_path(favorite.user.id) %>
-          </div>
-          <div class="relative-post-date">
-            更新日時：<%= favorite.created_at.strftime("%Y.%m.%d") %>
-          </div>
-        <% end %>
-      </li>
-    <% end %>
-    </ul>
+      <div class="user__card_user_show">
+       <% @posts.each do |post| %>
+    <div class="content_post_user_show">
+     <%= link_to image_tag(post.image, size: '400x400'), post_path(post.id), method: :get %>
+    </div>
   <% end %>
-      <div class="user__card">
-        <%= render partial: 'posts/post', collection: @posts %>
       </div>
     </div>
   </div>
