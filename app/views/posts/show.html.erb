@@ -1,58 +1,60 @@
-<main class="main">
-  <div class="inner">
-    <div class="post__wrapper">
-      <p class="post__hedding">
-        <%= "プロトタイプのタイトル"%>
-      </p>
-      <%= link_to @post.user.nickname, user_path(@post.id), class: :prototype__user %>
-      <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
-        <div class="post__manage">
-          <%= link_to "編集する",  edit_post_path(@post), class: :post__btn %>
-          <%= link_to "削除する", post_path(@post),method: :delete,class: :post__btn %>
-        </div>
-      <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
-      <div class="post__image">
-        <%= image_tag @post.image %>
-      </div>
-      <div class="post__body">
-        <div class="post__detail">
-          <p class="detail__title">キャッチコピー</p>
-          <p class="detail__message">
-            <%= "プロトタイプのキャッチコピー" %>
-          </p>
-        </div>
-        <div class="post__detail">
-          <p class="detail__title">コンセプト</p>
-          <p class="detail__message">
-            <%= "プロトタイプのコンセプト" %>
-          </p>
-        </div>
-      </div>
-      <div class="post__comments">
- <% if user_signed_in? && current_user.id == @post.user_id %>
-          <%= form_with model: [@post,@comment],local: true do |f|%>
-            <div class="field">
-               <%= f.label :text, "コメント" %><br />
-               <%= f.text_field :content, id:"comment_content" %>
-            </div>
-            <div class="actions">
-             <%= f.submit "送信する", class: :form__btn  %>
-            </div>
-            <div class='star-btn' id="favorite_<%= @post.id %>">
-             <%= render "favorites/favorite", post: @post %>
-          </div>
-         <% end %>
-    <% end %>
-        <%# // ログインしているユーザーには上記を表示する %>
-        <ul class="comments_lists">
-           <% @comments.each do |comment| %>
-            <li class="comments_list">
-            <%= comment.content %>
-            <%= link_to comment.user.nickname, user_path(@post.id), class: :comment_user %>
-            </li>
-          <% end %>
+<div class="contents row">
+  <div class="content_post_show">
+  <%= link_to image_tag(@post.image,size: '500x500'), post_path(@post.id), method: :get %>
+    <% if user_signed_in? && current_user.id == @post.user_id %>
+      <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+        <ul class="more_list">
+          <li>
+            <%= link_to '編集', edit_post_path(@post.id), method: :get %>
+          </li>
+          <li>
+            <%= link_to '削除', post_path(@post.id), method: :delete %>
+          </li>
         </ul>
       </div>
-    </div>
+    <% end %>
+    <span class="name_show">
+      <a href="/users/<%= @post.user.id %>">
+        <%= @post.user.name %>
+      </a>
+    </span>
   </div>
-</main>
+   <table class="coordinate-item">
+      <tbody>
+        <tr>
+          <th class="detail-item">Headwear</th>
+          <td class="detail-value"><%= @post.headwear %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">Tops</th>
+          <td class="detail-value"><%= @post.tops %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">Outer</th>
+          <td class="detail-value"><%= @post.outer %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">Bottoms</th>
+          <td class="detail-value"> <%= @post.bottoms %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">Shoes</th>
+          <td class="detail-value"><%= @post.shoes %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">Accessories</th>
+          <td class="detail-value"><%= @post.accessories %></td>
+        </tr>
+      </tbody>
+    </table>
+        <div class="option">
+      <div class="favorite-btn">
+      <% if user_signed_in? && current_user != @post.user %>
+    <% if current_user.favorite_find(@post.id) %>
+      <%= link_to 'お気に入りからはずす', post_destroy_favorite_path(@post.id), method: :delete %>
+    <% else %>
+      <%= link_to 'お気に入り登録する', post_create_favorite_path(@post.id), method: :post %>
+    <% end %>
+  <% end %>
+  </div>

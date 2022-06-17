@@ -15,7 +15,7 @@
 | ------------------ | ------ | -----------            |
 | email              | string | unique: true,null:fales|
 | encrypted_password | string | null: false            |
-| nickname           | string | null: false            |
+| name           | string | null: false            |
 | first_name         | string | null: false            |
 | last_name          | string | null: false            |
 

@@ -1,17 +1,11 @@
-<main class="main">
-  <div class="inner">
-  <%if current_user.following?(@user) %>
-  <%= link_to "フォロー外す", user_relationships_path(@user.id), method: :delete %>
-<% else %>
-  <%= link_to "フォローする", user_relationships_path(@user.id), method: :post %>
-<% end %>
-    <%# ログインしているときは以下を表示する %>
-      <%# <div class="greeting"> %>
-        <%= link_to "ユーザー名", root_path, class: :greeting__link%>
-      <%# </div> %>
-    <%# // ログインしているときは上記を表示する %>
-    <div class="card__wrapper">
-      <%= render partial: 'post', collection: @posts %>
+<div class="contents row">
+  <% @posts.each do |post| %>
+    <div class="content_post">
+     <%= link_to image_tag(post.image, size: '500x500'), post_path(post.id), method: :get %>
+      <span class="name">
+        <%= post.user.name %>
+      </span>
     </div>
-  </div>
-</main>
+  <% end %>
+</div>
+

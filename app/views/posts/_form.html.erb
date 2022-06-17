@@ -1,37 +1,37 @@
 <%= form_with model: @post, local: true do |f|%>
 
   <div class="field">
-    <%= f.label :image, "Image" %><br />
+    <%= f.label :image,"Photo" %>
     <%= f.file_field :image, id:"post_image" %>
   </div>
-  
+
   <div class="field">
-    <%= f.label :headwear, "Headwear" %><br />
+    <%= f.label :headwear, "Headwear" %>
     <%= f.text_field :headwear, id:"post_headwear" %>
   </div>
 
   <div class="field">
-    <%= f.label :tops, "Tops" %><br />
+    <%= f.label :tops, "Tops" %>
     <%= f.text_field :tops, id:"post_tops" %>
   </div>
 
     <div class="field">
-    <%= f.label :outer, "Outer" %><br />
+    <%= f.label :outer, "Outer" %>
     <%= f.text_field :outer, id:"post_outer" %>
   </div>
 
     <div class="field">
-    <%= f.label :bottoms, "Bottoms" %><br />
+    <%= f.label :bottoms, "Bottoms" %>
     <%= f.text_field :bottoms, id:"post_bottoms" %>
   </div> 
 
    <div class="field">
-    <%= f.label :shoes, "Shoes" %><br />
+    <%= f.label :shoes, "Shoes" %>
     <%= f.text_field :shoes, id:"post_shoes" %>
   </div>
 
     <div class="field">
-    <%= f.label :accessories, "Acessories" %><br />
+    <%= f.label :accessories, "Acessories" %>
     <%= f.text_field :accessories, id:"post_accessories" %>
   </div>
 
