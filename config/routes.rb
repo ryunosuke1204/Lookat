@@ -1,17 +1,9 @@
 Rails.application.routes.draw do
-  get 'relationships/followings'
-  get 'relationships/followers'
   devise_for :users
   root to: 'posts#index'
+  resources :users, only: :show
   resources :posts do
-    resources :comments, only: :create
     post 'favorite/:id' => 'favorites#create', as: 'create_favorite'
     delete 'favorite/:id' => 'favorites#destroy', as: 'destroy_favorite'
-  end
-  resources :users, only: [:show,:edit,:update ]do
-    get :favorites, on: :collection
-    resource :relationships, only: [:create, :destroy]
-    get 'followings' => 'relationships#followings', as: 'followings'
-    get 'followers' => 'relationships#followers', as: 'followers'
  end
 end

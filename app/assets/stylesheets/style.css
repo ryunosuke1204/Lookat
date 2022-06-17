@@ -1104,7 +1104,7 @@ div.content_post_show span.name_show {
   color: #000;
 }
 
-.option {
+.favorite-option {
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -1115,12 +1115,14 @@ div.content_post_show span.name_show {
   border-radius: 40px;
   width: 15vw;
   min-width: 200px;
-  color: rgb(249, 75, 0);
-  border: 2px solid #ffb340;
+  color: #000;
+  border: 2px solid gray;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 20px;
+  background-color: #ffb340;
+  height: 100px;
 }
 
 .favorite-star-icon {

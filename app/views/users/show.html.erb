@@ -25,10 +25,10 @@
     </div>
   <% end %>
   </div>
-<% if @favorite_list.present? %>
  <h2 class="page-heading">
  <%= "お気に入りの投稿"%>
 </h2>
+<% if @favorite_list.present? %>
 <div class="user__card_favorite">
   <% @favorite_list.each do |post| %>
   <div class="user__post_favorite">
