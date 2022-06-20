@@ -5,7 +5,7 @@
 
 * 内容 : コーディネートを投稿できるアプリ
 
-* 目的 : 洋服でコミュニティを広げ繋げる。
+* 目的 :他の人のコーディネートを参考にできる
 
 ーーーーーーーーーーーーーーーーーーーーーーー
 
@@ -22,7 +22,6 @@
 ## Association
 
 has_many :favorite
-has_many :relationship
 
 ## posts　テーブル
 | Column             | Type      |Options                     |
@@ -39,17 +38,6 @@ has_many :relationship
 
 ## Association
 belongs_to :user
-belongs_to :comment
-
-## comments テーブル
-| Column       | Type      | Options                          |
-| ----------   | ----------| ---------------------------------|
-| user         |references | null: false, foreign_key: true   |
-| post         |references | null: false, foreign_key: true   |
-| content      |references | null: false                      |
-## Association
-belongs_to :user
-belongs_to :post
 
 ## favorites テーブル
 
@@ -61,14 +49,6 @@ belongs_to :post
 belongs_to :user
 belongs_to :item
 
-## relationships テーブル
-| Column       | Type      | Options                          |
-| ----------   | ----------| ---------------------------------|
-| user_id      |references | null: false, foreign_key: true   |
-| follow_id    |references | null: false, foreign_key: true   |
-## Association
-belongs_to :user
-belongs_to :follow,class_name:"User"
 
 
 
