@@ -14,6 +14,7 @@ da414ab1c06ae236c71ad84c828bfa62.png
 
 『マイページ』
 23235c64b135a4c1586d3d698e56ae74.png
+
 ーーーーーーーーーーーーーーーーーーーーーーー
 ## users テーブル
 
@@ -21,9 +22,8 @@ da414ab1c06ae236c71ad84c828bfa62.png
 | ------------------ | ------ | -----------            |
 | email              | string | unique: true,null:fales|
 | encrypted_password | string | null: false            |
-| name           | string | null: false            |
-| first_name         | string | null: false            |
-| last_name          | string | null: false            |
+| name               | string | null: false            |
+| profile            | text   | null: false            |
 
 ## Association
 
