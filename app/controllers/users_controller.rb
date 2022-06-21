@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def show
   @user = User.find(params[:id])
   @name = @user.name
+  @profile = @user.profile
   @posts = @user.posts
 
   favorites = Favorite.where(user_id: current_user.id).pluck(:post_id) 
